@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kennelly Plant Services</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+}
+
+header {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid orange;
+}
+
+header h1 {
+    margin: 0;
+    color: orange;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: orange;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.service-box {
+    background: #1c1c1c;
+    padding: 15px;
+    border-left: 4px solid orange;
+}
+
+.contact-box {
+    background: #1c1c1c;
+    padding: 20px;
+    border: 2px solid orange;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+}
+
+button {
+    background: orange;
+    color: black;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #ff9900;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    border-top: 3px solid orange;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Kennelly Plant Services</h1>
+    <p>Servicing, Maintenance & Repairs</p>
+    <p><strong>086 3797641</strong></p>
+</header>
+
+<div class="container">
+
+<div class="section">
+    <h2>About</h2>
+    <p>
+    Based in Laois, covering Leinster.  
+    We provide professional servicing, maintenance and repair of construction plant machinery.  
+    Working on all major brands with fast, reliable support to minimise downtime.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Services</h2>
+    <div class="services">
+        <div class="service-box">Plant Repairs & Maintenance</div>
+        <div class="service-box">Diagnostics & Fault Finding</div>
+        <div class="service-box">Line Boring & Bore Welding</div>
+        <div class="service-box">Engine Management & Performance Optimisation</div>
+        <div class="service-box">Aftertreatment System Diagnostics (EGR / DPF / SCR)</div>
+        <div class="service-box">On-site & Mobile Callout</div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Our Work</h2>
+    <p>Add your machine photos here (excavators, repairs, welding, etc.)</p>
+</div>
+
+<div class="section">
+    <h2>Contact</h2>
+    <div class="contact-box">
+
+        <p><strong>Phone:</strong> 086 3797641</p>
+        <p><strong>Email:</strong> johnkennellyplantservices@gmail.com</p>
+        <p><strong>Hours:</strong> 7am – 7pm, 6 days a week</p>
+
+        <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact">
+
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="tel" name="phone" placeholder="Contact Number" required>
+            <input type="text" name="machine" placeholder="Machine Make / Model">
+            <input type="text" name="location" placeholder="Location">
+            <textarea name="message" placeholder="Describe the issue..." required></textarea>
+
+            <button type="submit">Send Enquiry</button>
+        </form>
+
+    </div>
+</div>
+
+</div>
+
+<div class="footer">
+    <p>John Kennelly Plant Services Ltd</p>
+    <p>Trading as Kennelly Plant Services</p>
+</div>
+
+</body>
+</html>
