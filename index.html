@@ -1,156 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kennelly Plant Services</title>
+import React from "react";
+import { Phone, Mail, MapPin, Clock, Wrench, Gauge, Flame, Cpu, ShieldCheck, ArrowRight, Menu, Send, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: #fff;
+const services = [
+  {
+    icon: Wrench,
+    title: "Servicing, Maintenance & Repairs",
+    text: "Construction plant serviced, maintained and repaired across all major brands. Built around keeping machines earning, not parked.",
+  },
+  {
+    icon: Gauge,
+    title: "Diagnostics & Fault Finding",
+    text: "Electrical, hydraulic, mechanical and engine diagnostics for no-starts, derates, warning lights and intermittent faults.",
+  },
+  {
+    icon: Flame,
+    title: "Line Boring & Bore Welding",
+    text: "On-site bore repairs, pivot restoration, bucket repairs, pins, bushes and precision machining work for worn plant.",
+  },
+  {
+    icon: Cpu,
+    title: "Engine Management & Optimisation",
+    text: "ECU work, calibration support and performance optimisation for plant where stronger drivability and response are required.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Aftertreatment Systems",
+    text: "DPF, EGR, SCR and AdBlue diagnostics, repair support, sensor faults and system reliability work within applicable requirements.",
+  },
+];
+
+const gallery = [
+  "Excavator diagnostics",
+  "Bore welding repair",
+  "Hydraulic fault finding",
+  "Bucket and linkage work",
+  "Engine management",
+  "On-site plant repair",
+];
+
+export default function KennellyPlantServices() {
+  return (
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-orange-500 selection:text-black">
+      <div className="fixed inset-0 pointer-events-none opacity-40">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(249,115,22,.22),transparent_32%),radial-gradient(circle_at_85%_15%,rgba(255,255,255,.08),transparent_26%),linear-gradient(140deg,rgba(0,0,0,0),rgba(0,0,0,.85))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.035)_1px,transparent_1px)] bg-[size:48px_48px]" />
+      </div>
+
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <a href="#top" className="flex items-center gap-3">
+            <div className="relative grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-orange-400/40 bg-black shadow-lg shadow-orange-500/10">
+              <img src="/logo.png" alt="Kennelly Plant Services logo" className="h-full w-full object-contain p-1" />
+            </div>
+            <div>
+              <p className="text-sm uppercase tracking-[0.32em] text-orange-400">Kennelly</p>
+              <p className="-mt-1 text-lg font-black tracking-tight">Plant Services</p>
+            </div>
+          </a>
+
+          <nav className="hidden items-center gap-8 text-sm font-semibold text-neutral-300 md:flex">
+            <a href="#services" className="hover:text-orange-400">Services</a>
+            <a href="#work" className="hover:text-orange-400">Our Work</a>
+            <a href="#contact" className="hover:text-orange-400">Contact</a>
+          </nav>
+
+          <a href="tel:0863797641" className="hidden rounded-full bg-orange-500 px-5 py-3 text-sm font-black text-black shadow-lg shadow-orange-500/20 transition hover:bg-orange-400 md:inline-flex">
+            086 3797641
+          </a>
+          <Menu className="md:hidden" />
+        </div>
+      </header>
+
+      <section id="top" className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-24 pt-16 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:pb-32 lg:pt-24">
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="relative z-10">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/10 px-4 py-2 text-sm font-bold text-orange-300">
+            <span className="h-2 w-2 rounded-full bg-orange-400" /> Based in Laois · Covering Leinster
+          </div>
+          <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.05em] text-white md:text-7xl lg:text-8xl">
+            Plant machinery kept moving.
+            <span className="block text-orange-500">Without the theatre.</span>
+          </h1>
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-300 md:text-xl">
+            Servicing, maintenance, repairs, diagnostics, line boring, bore welding, engine management and aftertreatment system support for construction plant across Leinster.
+          </p>
+
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="tel:0863797641" className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-orange-500 px-7 py-4 font-black text-black shadow-2xl shadow-orange-500/20 transition hover:bg-orange-400">
+              Call for fastest response <Phone size={18} />
+            </a>
+            <a href="#contact" className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-7 py-4 font-black text-white backdrop-blur transition hover:border-orange-400/50 hover:bg-white/10">
+              Send fault details <ArrowRight size={18} />
+            </a>
+          </div>
+
+          <div className="mt-10 grid max-w-2xl grid-cols-1 gap-3 text-sm text-neutral-300 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"><strong className="block text-white">All brands</strong>Mixed fleets welcome</div>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"><strong className="block text-white">7am – 7pm</strong>Six days a week</div>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4"><strong className="block text-white">Mobile support</strong>On-site where practical</div>
+          </div>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative z-10">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-neutral-900 shadow-2xl shadow-black/50">
+            <div className="absolute left-0 top-0 z-10 m-5 rounded-full bg-black/70 px-4 py-2 text-sm font-black text-orange-400 backdrop-blur">Field-ready interface</div>
+            <div className="aspect-[4/5] bg-[linear-gradient(160deg,rgba(249,115,22,.35),rgba(23,23,23,.25)),url('/hero-machine.jpg')] bg-cover bg-center">
+              <div className="flex h-full items-end p-6">
+                <div className="w-full rounded-3xl border border-white/10 bg-black/65 p-5 backdrop-blur-xl">
+                  <p className="text-xs uppercase tracking-[0.3em] text-orange-400">Priority</p>
+                  <p className="mt-1 text-2xl font-black">Downtime reduction</p>
+                  <p className="mt-2 text-sm leading-6 text-neutral-300">Straight answers, practical repairs, and clear next steps when the machine is holding up the job.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section id="services" className="relative z-10 mx-auto max-w-7xl px-5 py-20 lg:px-8">
+        <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">Capabilities</p>
+            <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] md:text-6xl">Built for heavy work.</h2>
+          </div>
+          <p className="max-w-xl text-neutral-300">A compact service menu with enough detail for the right customer to know they’re in the right yard.</p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.article key={service.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} className="group rounded-[1.7rem] border border-white/10 bg-white/[0.045] p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-orange-400/40 hover:bg-white/[0.07]">
+                <div className="mb-6 grid h-12 w-12 place-items-center rounded-2xl bg-orange-500 text-black shadow-lg shadow-orange-500/20">
+                  <Icon size={24} />
+                </div>
+                <h3 className="text-xl font-black tracking-tight text-white">{service.title}</h3>
+                <p className="mt-3 leading-7 text-neutral-300">{service.text}</p>
+              </motion.article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="work" className="relative z-10 mx-auto max-w-7xl px-5 py-20 lg:px-8">
+        <div className="mb-10 rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.025] p-8 md:p-10">
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">Our Work</p>
+          <h2 className="mt-3 max-w-3xl text-4xl font-black tracking-[-0.04em] md:text-6xl">Real machines. Real faults. Real fixes.</h2>
+          <p className="mt-5 max-w-2xl leading-8 text-neutral-300">Drop your own photos into the gallery and they become the proof layer: diagnostics, line boring, bore welding, engine work, hydraulics and site repairs.</p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {gallery.map((item, index) => (
+            <div key={item} className="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-neutral-900">
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(249,115,22,.28),rgba(255,255,255,.04)),url('/work-placeholder.jpg')] bg-cover bg-center transition duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 p-5">
+                <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-300">Job {String(index + 1).padStart(2, "0")}</p>
+                <h3 className="mt-1 text-xl font-black">{item}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="relative z-10 mx-auto max-w-7xl px-5 py-20 lg:px-8">
+        <div className="grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-orange-500 p-8 text-black md:p-10">
+            <p className="text-sm font-black uppercase tracking-[0.3em]">Contact</p>
+            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] md:text-5xl">Breakdown? Call first.</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-black/80">For urgent faults, phone is fastest. For non-urgent jobs, send the machine details and fault description through the form.</p>
+            <div className="mt-8 space-y-4 font-black">
+              <a href="tel:0863797641" className="flex items-center gap-3"><Phone /> 086 3797641</a>
+              <a href="mailto:johnkennellyplantservices@gmail.com" className="flex items-center gap-3 break-all"><Mail /> johnkennellyplantservices@gmail.com</a>
+              <p className="flex items-center gap-3"><MapPin /> Based in Laois · Covering Leinster</p>
+              <p className="flex items-center gap-3"><Clock /> 7am – 7pm · 6 days a week</p>
+            </div>
+          </div>
+
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="rounded-[2rem] border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/30 md:p-8">
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+            <div className="mb-6 flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-orange-500 text-black"><Send size={20} /></div>
+              <div>
+                <h3 className="text-2xl font-black tracking-tight">Send fault details</h3>
+                <p className="text-sm text-neutral-400">Enough info to judge the job before ringing back.</p>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              <input className="rounded-2xl border border-white/10 bg-black/35 px-4 py-4 outline-none ring-orange-500 transition placeholder:text-neutral-500 focus:ring-2" name="name" placeholder="Name" required />
+              <input className="rounded-2xl border border-white/10 bg-black/35 px-4 py-4 outline-none ring-orange-500 transition placeholder:text-neutral-500 focus:ring-2" name="phone" placeholder="Contact number" required />
+              <input className="rounded-2xl border border-white/10 bg-black/35 px-4 py-4 outline-none ring-orange-500 transition placeholder:text-neutral-500 focus:ring-2" name="machine" placeholder="Machine make / model" />
+              <input className="rounded-2xl border border-white/10 bg-black/35 px-4 py-4 outline-none ring-orange-500 transition placeholder:text-neutral-500 focus:ring-2" name="location" placeholder="Location / site" />
+            </div>
+            <textarea className="mt-4 min-h-36 w-full rounded-2xl border border-white/10 bg-black/35 px-4 py-4 outline-none ring-orange-500 transition placeholder:text-neutral-500 focus:ring-2" name="message" placeholder="Describe the problem, fault codes, symptoms, or work needed..." required />
+            <button className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-orange-500 px-6 py-4 font-black text-black shadow-lg shadow-orange-500/20 transition hover:bg-orange-400">
+              Submit enquiry <CheckCircle2 size={19} />
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="relative z-10 border-t border-white/10 bg-black/60 px-5 py-10 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 text-sm text-neutral-400 md:flex-row md:items-center">
+          <div>
+            <p className="font-black text-white">John Kennelly Plant Services Ltd</p>
+            <p>Trading as Kennelly Plant Services</p>
+          </div>
+          <p>Servicing · Maintenance · Repairs · Diagnostics · Line Boring · Bore Welding</p>
+        </div>
+      </footer>
+    </main>
+  );
 }
-
-header {
-    background: #000;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 3px solid orange;
-}
-
-header h1 {
-    margin: 0;
-    color: orange;
-}
-
-.container {
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    color: orange;
-}
-
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-}
-
-.service-box {
-    background: #1c1c1c;
-    padding: 15px;
-    border-left: 4px solid orange;
-}
-
-.contact-box {
-    background: #1c1c1c;
-    padding: 20px;
-    border: 2px solid orange;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-}
-
-button {
-    background: orange;
-    color: black;
-    padding: 12px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #ff9900;
-}
-
-.footer {
-    text-align: center;
-    padding: 20px;
-    background: #000;
-    border-top: 3px solid orange;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>Kennelly Plant Services</h1>
-    <p>Servicing, Maintenance & Repairs</p>
-    <p><strong>086 3797641</strong></p>
-</header>
-
-<div class="container">
-
-<div class="section">
-    <h2>About</h2>
-    <p>
-    Based in Laois, covering Leinster.  
-    We provide professional servicing, maintenance and repair of construction plant machinery.  
-    Working on all major brands with fast, reliable support to minimise downtime.
-    </p>
-</div>
-
-<div class="section">
-    <h2>Services</h2>
-    <div class="services">
-        <div class="service-box">Plant Repairs & Maintenance</div>
-        <div class="service-box">Diagnostics & Fault Finding</div>
-        <div class="service-box">Line Boring & Bore Welding</div>
-        <div class="service-box">Engine Management & Performance Optimisation</div>
-        <div class="service-box">Aftertreatment System Diagnostics (EGR / DPF / SCR)</div>
-        <div class="service-box">On-site & Mobile Callout</div>
-    </div>
-</div>
-
-<div class="section">
-    <h2>Our Work</h2>
-    <p>Add your machine photos here (excavators, repairs, welding, etc.)</p>
-</div>
-
-<div class="section">
-    <h2>Contact</h2>
-    <div class="contact-box">
-
-        <p><strong>Phone:</strong> 086 3797641</p>
-        <p><strong>Email:</strong> johnkennellyplantservices@gmail.com</p>
-        <p><strong>Hours:</strong> 7am – 7pm, 6 days a week</p>
-
-        <form name="contact" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact">
-
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="tel" name="phone" placeholder="Contact Number" required>
-            <input type="text" name="machine" placeholder="Machine Make / Model">
-            <input type="text" name="location" placeholder="Location">
-            <textarea name="message" placeholder="Describe the issue..." required></textarea>
-
-            <button type="submit">Send Enquiry</button>
-        </form>
-
-    </div>
-</div>
-
-</div>
-
-<div class="footer">
-    <p>John Kennelly Plant Services Ltd</p>
-    <p>Trading as Kennelly Plant Services</p>
-</div>
-
-</body>
-</html>
